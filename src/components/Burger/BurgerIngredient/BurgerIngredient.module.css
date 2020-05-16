@@ -110,3 +110,7 @@
   background: linear-gradient(#bf3813, #c45e38);
   margin: 2% auto;
 }
+p {
+  color: #91ce50;
+  font-size: 16px;
+}
