@@ -5,7 +5,7 @@ import { CONTROLS } from '../../../helpers/Constants';
 
 const BuildControls = (props) => {
   // console.log('BuildControlsProps', props);
-  const { price, addIngredient, removeIngredient, disabledButtons, isPurchasable } = props;
+  const { price, addIngredient, removeIngredient, disabledButtons, isPurchasable, orderNow } = props;
   return (
     <div className={Style.BuildControls}>
       <p className={Style.Price}>
@@ -27,7 +27,7 @@ const BuildControls = (props) => {
         );
       })}
       <p></p>
-      <button className={Style.OrderButton} disabled={isPurchasable}>
+      <button className={Style.OrderButton} disabled={isPurchasable} onClick={orderNow}>
         Order Now
       </button>
     </div>

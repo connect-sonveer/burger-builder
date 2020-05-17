@@ -16,6 +16,11 @@ class BurgerBuilder extends Component {
     },
     totalPrice: 20,
     isPurchasable: true,
+    showModal: false,
+  };
+
+  handleOrderNow = () => {
+    this.setState({ showModal: true });
   };
 
   handlePurchase = (ingredients) => {
@@ -53,7 +58,7 @@ class BurgerBuilder extends Component {
   };
 
   render() {
-    const { ingredients, totalPrice, isPurchasable } = this.state;
+    const { ingredients, totalPrice, isPurchasable, handleOrderNow, showModal } = this.state;
     const disabledButtons = {
       ...this.state.ingredients,
     };
@@ -64,7 +69,7 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal>
+        <Modal showModal={showModal}>
           <OrderSummary ingredients={ingredients} />
         </Modal>
         <Burger ingredients={ingredients} />
@@ -74,6 +79,7 @@ class BurgerBuilder extends Component {
           disabledButtons={disabledButtons}
           price={totalPrice}
           isPurchasable={isPurchasable}
+          orderNow={this.handleOrderNow}
         />
       </Aux>
     );
