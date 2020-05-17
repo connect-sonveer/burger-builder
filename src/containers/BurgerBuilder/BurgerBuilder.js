@@ -17,10 +17,15 @@ class BurgerBuilder extends Component {
     totalPrice: 20,
     isPurchasable: true,
     showModal: false,
+    showBackdrop: false,
   };
 
   handleOrderNow = () => {
-    this.setState({ showModal: true });
+    this.setState({ showModal: true, showBackdrop: true });
+  };
+
+  handleModalBackdrop = () => {
+    this.setState({ showModal: !this.state.showModal, showBackdrop: !this.state.showBackdrop });
   };
 
   handlePurchase = (ingredients) => {
@@ -58,7 +63,7 @@ class BurgerBuilder extends Component {
   };
 
   render() {
-    const { ingredients, totalPrice, isPurchasable, handleOrderNow, showModal } = this.state;
+    const { ingredients, totalPrice, isPurchasable, showModal, showBackdrop } = this.state;
     const disabledButtons = {
       ...this.state.ingredients,
     };
@@ -69,7 +74,7 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal showModal={showModal}>
+        <Modal showModal={showModal} showBackdrop={showBackdrop} handleModalBackdrop={this.handleModalBackdrop}>
           <OrderSummary ingredients={ingredients} />
         </Modal>
         <Burger ingredients={ingredients} />
