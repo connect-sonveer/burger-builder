@@ -1,31 +1,35 @@
 import React from 'react';
 import BuildControl from './BuildControl/BuildControl';
 import Style from './BuildControls.module.css';
+import { CONTROLS } from '../../../helpers/Constants';
 
 const BuildControls = (props) => {
-  const controls = [
-    { label: 'Salad', type: 'salad' },
-    { label: 'Cheese', type: 'cheese' },
-    { label: 'Meat', type: 'meat' },
-    { label: 'Bacon', type: 'bacon' },
-  ];
-
+  // console.log('BuildControlsProps', props);
+  const { price, addIngredient, removeIngredient, disabledButtons, isPurchasable } = props;
   return (
     <div className={Style.BuildControls}>
-      {controls.map((ctrl) => {
+      <p className={Style.Price}>
+        Total Price: <strong>{price}</strong>
+      </p>
+      {CONTROLS.map((ctrl) => {
         return (
           <BuildControl
             key={ctrl.label}
             label={ctrl.label}
             addIngredient={() => {
-              props.addIngredient(ctrl.type);
+              addIngredient(ctrl.type);
             }}
             removeIngredient={() => {
-              props.removeIngredient(ctrl.type);
+              removeIngredient(ctrl.type);
             }}
+            isDisabled={disabledButtons[ctrl.type]}
           />
         );
       })}
+      <p></p>
+      <button className={Style.OrderButton} disabled={isPurchasable}>
+        Order Now
+      </button>
     </div>
   );
 };
