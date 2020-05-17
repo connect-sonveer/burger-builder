@@ -75,7 +75,7 @@ class BurgerBuilder extends Component {
     return (
       <Aux>
         <Modal showModal={showModal} showBackdrop={showBackdrop} handleModalBackdrop={this.handleModalBackdrop}>
-          <OrderSummary ingredients={ingredients} />
+          <OrderSummary ingredients={ingredients} price={totalPrice} />
         </Modal>
         <Burger ingredients={ingredients} />
         <BuildControls
