@@ -1,8 +1,8 @@
 export const CONTROLS = [
   { label: 'Salad', type: 'salad' },
-  { label: 'Cheese', type: 'cheese' },
-  { label: 'Meat', type: 'meat' },
   { label: 'Bacon', type: 'bacon' },
+  { label: 'Meat', type: 'meat' },
+  { label: 'Cheese', type: 'cheese' },
 ];
 
 export const INGREDIENT_PRICE = {
