@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 5px 0 0 0;
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 90;
@@ -15,4 +16,14 @@
 
 .Toolbar nav {
   height: 100%;
+}
+
+.Logo {
+  height: 80%;
+}
+
+@media (max-width: 799px) {
+  .DesktopOnly {
+    display: none;
+  }
 }
